@@ -1,2 +1,8 @@
-<h1>Reservations#new</h1>
-<p>Find me in app/views/reservations/new.html.erb</p>
+<h1>Make a Reservation</h1>
+
+<%= form_for @reservation do |f| %>
+	<%= f.label :group_size, "Party Size" %> <%= f.text_field :group_size %>
+	<%= f.datetime_select :start %>
+	<%= f.collection_select(:restaurant_id, Restaurant.all, :id, :name) %>
+	<%= f.submit "Submit" %>
+<% end %>
